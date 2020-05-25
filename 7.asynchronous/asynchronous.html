@@ -9,6 +9,8 @@
 <body>
     <h1>Asynchronous JavaScript</h1>
     <script>
+
+        // async
         // const second = () => {
         //     setTimeout(() => {
         //         console.log('Async Hey there');
@@ -23,6 +25,7 @@
 
         // first();
 
+        // call back hell
         // function getRecipe() {
         //     setTimeout(() => {
         //         const recipeID = [523, 883, 432, 974];
@@ -43,6 +46,7 @@
         // }
         // getRecipe();
 
+        // promise
         // const getIDs = new Promise((resolve, reject) => {
         //     setTimeout(() => {
         //         resolve([523, 883, 432, 974]);
@@ -83,17 +87,17 @@
         //     console.log('Error!!');
         // });
 
-        // async function getRecipesAW() {
-        //     const IDs = await getIDs;
-        //     console.log(IDs);
-        //     const recipe = await getRecipe(IDs[2]);
-        //     console.log(recipe);
-        //     const related = await getRelated('Jonas Schmedtmann');
-        //     console.log(related);
+        async function getRecipesAW() {
+            const IDs = await getIDs;
+            console.log(IDs);
+            const recipe = await getRecipe(IDs[2]);
+            console.log(recipe);
+            const related = await getRelated('Jonas Schmedtmann');
+            console.log(related);
 
-        //     return recipe;
-        // }
-        // getRecipesAW().then(result => console.log(`${result} is the best ever!`));
+            return recipe;
+        }
+        getRecipesAW().then(result => console.log(`${result} is the best ever!`));
 
         function getWeather(woeid) {
             fetch(`https://crossorigin.me/https://www.metaweather.com/api/location/${woeid}/`)
